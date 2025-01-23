@@ -5,7 +5,7 @@ Java ve microservice mimari prensiplerine odaklanan mini bir Spring Boot e-ticar
 
 ## Temel Tasarım Prensipleri
 
-Domain-Driven Design (DDD)
+**Domain-Driven Design (DDD)**
 
 Domain-Driven Design, yazılım tasarımında, iş problemine odaklanarak yazılımın tüm yapısını bu problemi çözmek üzere inşa etmeyi amaçlayan bir yaklaşımdır. Bu prensip, yazılım geliştirme sürecinde iş alanındaki terimleri ve kavramları doğrudan kodlara entegre etmeyi hedefler.
 
@@ -103,24 +103,31 @@ Her sipariş için benzersiz bir sipariş kodu (ID) oluşturulmasını sağlar. 
 
 ## Kullanılan Teknolojiler
 Java 17
+
 Java 17, Java programlama dilinin uzun vadeli destek verilen sürümüdür. Java 17, performans iyileştirmeleri ve yeni özellikler sunar.
 
 Spring Boot
+
 Spring Boot, Spring framework'ü üzerinde hızla uygulama geliştirmeyi kolaylaştıran bir araçtır. Konfigürasyonu azaltarak geliştiricilerin odaklanmalarını sağlar.
 
 Spring Data JPA
+
 Spring Data JPA, JPA (Java Persistence API) ile etkileşimde bulunmayı kolaylaştıran bir Spring modülüdür. Veritabanı işlemlerini daha basit hale getirir.
 
-Hibernate
+**Hibernate
+
 Hibernate, Java için bir ORM (Object-Relational Mapping) aracıdır. Veritabanı işlemlerini nesne yönelimli şekilde yönetmeyi sağlar.
 
-Maven
+**Maven**
+
 Maven, Java projeleri için bir yapılandırma ve bağımlılık yönetim aracıdır. Projelerin derlenmesi, test edilmesi ve paketlenmesi için kullanılır.
 
-Lombok
+**Lombok**
+
 Lombok, Java sınıflarında tekrarlanan kodları (getter, setter, constructor gibi) otomatik olarak oluşturmak için kullanılan bir kütüphanedir.
 
 MySQL/PostgreSQL
+
 MySQL ve PostgreSQL, popüler açık kaynaklı veritabanı yönetim sistemleridir. MySQL genellikle hız ve basitlik açısından tercih edilirken, PostgreSQL daha gelişmiş özellikler ve veri bütünlüğü sağlar.
 - Maven
 - Lombok
