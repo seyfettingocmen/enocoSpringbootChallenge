@@ -23,10 +23,12 @@ Liskov Substitution Principle (LSP): Türetilmiş sınıflar, temel sınıfları
 Interface Segregation Principle (ISP): Kullanıcılar sadece kullanacakları işlevleri içeren arayüzleri kullanmalıdır.
 Dependency Inversion Principle (DIP): Yüksek seviyedeki modüller düşük seviyedeki modüllere bağımlı olmamalıdır, her ikisi de soyutlamalara bağımlı olmalıdır.
 
-## Transactional Integrity
+Transactional Integrity
+
 Transactional Integrity, veritabanı işlemlerinin bütünlüğünü korumayı amaçlar. Yani, bir işlem ya tamamen başarılı olmalı ya da tamamen başarısız olmalıdır (ACID özellikleri). Bu, sistemin veri tutarlılığını sağlar.
 
 ## Teknik Özellikler
+
 Katmanlı mimari (Entity, Repository, Service, Controller)
 Bu tasarımda, yazılım çeşitli katmanlara bölünür:
 
@@ -37,19 +39,24 @@ Controller: Kullanıcıdan gelen istekleri alan ve uygun servislere yönlendiren
 JPA/Hibernate ORM ile karmaşık ilişkiler
 JPA (Java Persistence API) ve Hibernate ORM (Object-Relational Mapping), Java uygulamalarının veritabanı ile iletişim kurmasını sağlayan araçlardır. Karmaşık ilişkiler (One-to-Many, Many-to-One vb.) yönetilmesini sağlar ve SQL kodu yazmadan veritabanı işlemlerini yapabilmemize olanak tanır.
 
-## Robust error handling
+Robust error handling
+
 Robust error handling, hataların doğru bir şekilde yakalanıp, sistemin çökmeden doğru şekilde işlemeye devam etmesini sağlamak anlamına gelir. Bu, kullanıcı dostu hata mesajları ve loglama ile sağlanır.
 
-## Transaction yönetimi
+Transaction yönetimi
+
 Transaction yönetimi, veritabanı işlemlerinin güvenli ve tutarlı bir şekilde yönetilmesini sağlar. Transaction, bir işlemdeki tüm adımların başarılı olmasını garanti eder.
 
-## Dinamik fiyatlandırma ve stok takibi
+Dinamik fiyatlandırma ve stok takibi
+
 Dinamik fiyatlandırma, ürünlerin fiyatlarını talebe, mevsime veya diğer faktörlere göre otomatik olarak ayarlamayı sağlar. Stok takibi ise, ürünlerin mevcut durumunu ve satış sonrasındaki envanteri izler.
 
-## Soft delete mekanizması
+Soft delete mekanizması
+
 Soft delete, veritabanından silinen verilerin fiziksel olarak silinmemesi, sadece "silindi" olarak işaretlenmesidir. Bu, verinin gelecekte tekrar erişilebilir olmasını sağlar.
 
-## Veritabanı İlişkileri
+
+Veritabanı İlişkileri
 
 One-to-One: Customer-Cart
 Bir müşterinin yalnızca bir sepeti olabilir ve bir sepet yalnızca bir müşteriye ait olabilir.
@@ -63,15 +70,19 @@ Bir sepet kalemi bir ürüne ait olabilir, ancak aynı ürün birden fazla sepet
 ## Gelişmiş Uygulama Stratejileri
 
 Akıllı stok yönetimi
+
 Stokların, satış tahminleri ve talep analizlerine göre otomatik olarak yönetilmesini sağlayan bir stratejidir. Böylece, talep artışlarına göre stok seviyeleri hızla ayarlanabilir.
 
-## Price preservation for historical order references
+Price preservation for historical order references
+
 Geçmişte yapılmış siparişlerin fiyatlarının korunması, sipariş iptal veya iade işlemleri sırasında önemli olabilir. Bu, fiyat değişimlerinden bağımsız olarak eski siparişlerin tutarlılığını sağlar.
 
-## BaseEntity ile otomatik audit trail
+BaseEntity ile otomatik audit trail
+
 BaseEntity, tüm veritabanı nesnelerinin miras aldığı temel bir sınıftır. Bu sınıf, nesnelerin ne zaman oluşturulduğu, kim tarafından güncellendiği gibi bilgileri otomatik olarak kaydeder ve bu da audit trail (denetim izleme) sağlar.
 
-## Dinamik sipariş durum takibi
+Dinamik sipariş durum takibi
+
 Siparişlerin her aşamasındaki durumu (örneğin "Sipariş Alındı", "Kargoya Verildi", "Teslim Edildi") dinamik olarak takip edilmesini sağlar. Bu, kullanıcıların siparişlerinin durumunu her zaman güncel ve doğru bir şekilde görmesini sağlar.
 
 ## İş Mantığı Uygulamaları
