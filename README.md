@@ -4,11 +4,11 @@
 <br>
 Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticaret backend sistemi geliştirmeyi amaçlar. Temelde, iş mantığını modüler bir şekilde yönetmeye odaklanır.
 <br>
+<br>
 
 ## **Temel Tasarım Prensipleri**
+<br>
 
-<br>
-<br>
 **Domain-Driven Design (DDD):** İş problemini çözmek için yazılımı iş alanına göre tasarlama.
 
 **Separation of Concerns (SoC):** Yazılımda her modülün yalnızca bir sorumluluğa sahip olması gerektiği prensip.
@@ -25,14 +25,19 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
   &nbsp;&nbsp;&nbsp;**4.** Interface Segregation Principle (ISP) - Arayüz Ayrımı Prensibi
 
   &nbsp;&nbsp;&nbsp;**5.** Dependency Inversion Principle (DIP) - Bağımlılıkların Tersine Çevrilmesi Prensibi
-  <br>
+  
+<br>
+<br>
 
 **Transactional Integrity:** Veritabanı işlemlerinin tutarlılığını sağlama.**
+
 <br>
-<br>
+
 ## **Teknik Özellikler**
+
 <br>
 <br>
+
 **Katmanlı Mimari:** Entity, Repository, Service ve Controller katmanları.
 
 **JPA/Hibernate ORM:** Veritabanı işlemlerini nesne tabanlı şekilde yönetme.
