@@ -1,9 +1,8 @@
 # **E-Commerce Microservice Architecture Project**
 
 ## **Proje Genel Bakışı**
-
-
-
+<br>
+<br>
 Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticaret backend sistemi geliştirmeyi amaçlar. Temelde, iş mantığını modüler bir şekilde yönetmeye odaklanır.
 
 ## **Temel Tasarım Prensipleri**
