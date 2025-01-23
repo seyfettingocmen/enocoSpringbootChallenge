@@ -16,6 +16,8 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 
 **SOLID Prensipleri:** Modüler ve bakımı kolay yazılım için beş temel prensip.**
 
+<br>
+
   &nbsp;&nbsp;&nbsp;**1.** Single Responsibility Principle (SRP) - Tek Sorumluluk Prensibi
 
   &nbsp;&nbsp;&nbsp;**2.** Open/Closed Principle (OCP) - Açık/Kapalı Prensibi
@@ -27,15 +29,14 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
   &nbsp;&nbsp;&nbsp;**5.** Dependency Inversion Principle (DIP) - Bağımlılıkların Tersine Çevrilmesi Prensibi
   
 <br>
+
+**Transactional Integrity:** Veritabanı işlemlerinin tutarlılığını sağlama.
+
 <br>
-
-**Transactional Integrity:** Veritabanı işlemlerinin tutarlılığını sağlama.**
-
 <br>
 
 ## **Teknik Özellikler**
 
-<br>
 <br>
 
 **Katmanlı Mimari:** Entity, Repository, Service ve Controller katmanları.
@@ -48,7 +49,12 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 
 **Soft Delete:** Verilerin fiziksel olarak silinmemesi, sadece "silindi" olarak işaretlenmesi.
 
+<br>
+<br>
+
 ## **Veritabanı İlişkileri**
+
+<br>
 
 **One-to-One: Customer-Cart**
 
@@ -56,7 +62,12 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 
 **Many-to-One: CartItem-Product, OrderItem-Product**
 
+<br>
+<br>
+
 ## **Gelişmiş Uygulama Stratejileri**
+
+<br>
 
 **Akıllı Stok Yönetimi:** Talep analizlerine göre stokları yönetme.
 
@@ -66,7 +77,12 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 
 **Dinamik Sipariş Durum Takibi:** Siparişlerin her aşamasını takip etme.
 
+<br>
+<br>
+
 ## **İş Mantığı Uygulamaları**
+
+<br>
 
 **Product Management:** Ürünlerin oluşturulması, güncellenmesi ve silinmesi.
 
@@ -78,7 +94,12 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 
 **Benzersiz Sipariş Kodu:** Her sipariş için benzersiz ID üretme.
 
+<br>
+<br>
+
 ## **Kullanılan Teknolojiler**
+
+<br>
 
 **Java 17, Spring Boot, Spring Data JPA, Hibernate**
 
