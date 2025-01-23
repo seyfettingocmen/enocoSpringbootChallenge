@@ -2,17 +2,33 @@
 
 **Proje Genel Bakışı**
 
+
+
 Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticaret backend sistemi geliştirmeyi amaçlar. Temelde, iş mantığını modüler bir şekilde yönetmeye odaklanır.
 
 **Temel Tasarım Prensipleri**
+
+
 
 Domain-Driven Design (DDD): İş problemini çözmek için yazılımı iş alanına göre tasarlama.
 
 Separation of Concerns (SoC): Yazılımda her modülün yalnızca bir sorumluluğa sahip olması gerektiği prensip.
 
+
 SOLID Prensipleri: Modüler ve bakımı kolay yazılım için beş temel prensip.
 
+  **•** Single Responsibility Principle (SRP) - Tek Sorumluluk Prensibi
+
+  **•** Open/Closed Principle (OCP) - Açık/Kapalı Prensibi
+
+  **•** Liskov Substitution Principle (LSP) - Liskov Yerine Geçme Prensibi
+
+  **•** Interface Segregation Principle (ISP) - Arayüz Ayrımı Prensibi
+
+  **•** Dependency Inversion Principle (DIP) - Bağımlılıkların Tersine Çevrilmesi Prensibi
+
 Transactional Integrity: Veritabanı işlemlerinin tutarlılığını sağlama.
+
 
 **Teknik Özellikler**
 
