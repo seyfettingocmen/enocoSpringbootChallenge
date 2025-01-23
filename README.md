@@ -1,7 +1,7 @@
 # E-Commerce Microservice Architecture Project
 
 ## Proje Genel Bakış
-Java ve microservice mimari prensiplerine odaklanan kapsamlı bir Spring Boot e-ticaret backend sistemi.
+Java ve microservice mimari prensiplerine odaklanan mini bir Spring Boot e-ticaret backend sistemi.
 
 ## Domain-Driven Design (DDD)
 Domain-Driven Design, yazılım tasarımında, iş problemine odaklanarak yazılımın tüm yapısını bu problemi çözmek üzere inşa etmeyi amaçlayan bir yaklaşımdır. Bu prensip, yazılım geliştirme sürecinde iş alanındaki terimleri ve kavramları doğrudan kodlara entegre etmeyi hedefler.
