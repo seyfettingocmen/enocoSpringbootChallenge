@@ -6,7 +6,7 @@
 
 Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticaret backend sistemi geliştirmeyi amaçlar. Temelde, iş mantığını modüler bir şekilde yönetmeye odaklanır.
 
-**Temel Tasarım Prensipleri**
+## **Temel Tasarım Prensipleri**
 
 
 
@@ -30,7 +30,7 @@ SOLID Prensipleri: Modüler ve bakımı kolay yazılım için beş temel prensip
 Transactional Integrity: Veritabanı işlemlerinin tutarlılığını sağlama.
 
 
-**Teknik Özellikler**
+## **Teknik Özellikler**
 
 Katmanlı Mimari: Entity, Repository, Service ve Controller katmanları.
 
@@ -42,7 +42,7 @@ Dinamik Fiyatlandırma ve Stok Takibi: Fiyatları ve stok seviyelerini otomatik 
 
 Soft Delete: Verilerin fiziksel olarak silinmemesi, sadece "silindi" olarak işaretlenmesi.
 
-**Veritabanı İlişkileri**
+## **Veritabanı İlişkileri**
 
 One-to-One: Customer-Cart
 
@@ -50,7 +50,7 @@ One-to-Many: Customer-Orders, Order-OrderItems
 
 Many-to-One: CartItem-Product, OrderItem-Product
 
-**Gelişmiş Uygulama Stratejileri**
+## **Gelişmiş Uygulama Stratejileri**
 
 Akıllı Stok Yönetimi: Talep analizlerine göre stokları yönetme.
 
@@ -60,7 +60,7 @@ BaseEntity ile Audit Trail: Veritabanı nesnelerinin değişim geçmişini otoma
 
 Dinamik Sipariş Durum Takibi: Siparişlerin her aşamasını takip etme.
 
-**İş Mantığı Uygulamaları**
+## **İş Mantığı Uygulamaları**
 
 Product Management: Ürünlerin oluşturulması, güncellenmesi ve silinmesi.
 
@@ -72,7 +72,7 @@ Order Processing: Siparişlerin alınması ve teslimat süreci.
 
 Benzersiz Sipariş Kodu: Her sipariş için benzersiz ID üretme.
 
-**Kullanılan Teknolojiler**
+## **Kullanılan Teknolojiler**
 
 Java 17, Spring Boot, Spring Data JPA, Hibernate
 
