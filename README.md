@@ -3,13 +3,18 @@
 ## Proje Genel Bakış
 Java ve microservice mimari prensiplerine odaklanan mini bir Spring Boot e-ticaret backend sistemi.
 
-## Domain-Driven Design (DDD)
+## Temel Tasarım Prensipleri
+
+Domain-Driven Design (DDD)
+
 Domain-Driven Design, yazılım tasarımında, iş problemine odaklanarak yazılımın tüm yapısını bu problemi çözmek üzere inşa etmeyi amaçlayan bir yaklaşımdır. Bu prensip, yazılım geliştirme sürecinde iş alanındaki terimleri ve kavramları doğrudan kodlara entegre etmeyi hedefler.
 
-## Separation of Concerns (SoC)
+Separation of Concerns (SoC)
+
 Separation of Concerns, yazılımda her modülün veya bileşenin yalnızca tek bir sorumluluğa sahip olması gerektiğini belirten bir prensiptir. Bu, yazılımın daha modüler ve bakımı daha kolay olmasını sağlar. Örneğin, veri işleme, kullanıcı arayüzü ve iş mantığı farklı katmanlarda yer alır.
 
-## SOLID Prensipleri
+SOLID Prensipleri
+
 SOLID, beş temel yazılım tasarımı prensibini ifade eder:
 
 Single Responsibility Principle (SRP): Bir sınıf yalnızca bir sorumluluğa sahip olmalıdır.
