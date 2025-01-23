@@ -46,8 +46,3 @@ Java ve microservice mimari prensiplerine odaklanan kapsamlı bir Spring Boot e-
 - Lombok
 - MySQL/PostgreSQL
 
-## Gelecek Geliştirmeler
-- Microservice decomposition
-- Comprehensive testing
-- Caching mekanizmaları
-- Advanced security uygulamaları
