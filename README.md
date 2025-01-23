@@ -4,7 +4,6 @@
 <br>
 Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticaret backend sistemi geliştirmeyi amaçlar. Temelde, iş mantığını modüler bir şekilde yönetmeye odaklanır.
 <br>
-<br>
 
 ## **Temel Tasarım Prensipleri**
 <br>
@@ -33,7 +32,6 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 **Transactional Integrity:** Veritabanı işlemlerinin tutarlılığını sağlama.
 
 <br>
-<br>
 
 ## **Teknik Özellikler**
 
@@ -50,7 +48,6 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 **Soft Delete:** Verilerin fiziksel olarak silinmemesi, sadece "silindi" olarak işaretlenmesi.
 
 <br>
-<br>
 
 ## **Veritabanı İlişkileri**
 
@@ -62,7 +59,6 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 
 **Many-to-One: CartItem-Product, OrderItem-Product**
 
-<br>
 <br>
 
 ## **Gelişmiş Uygulama Stratejileri**
@@ -77,7 +73,6 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 
 **Dinamik Sipariş Durum Takibi:** Siparişlerin her aşamasını takip etme.
 
-<br>
 <br>
 
 ## **İş Mantığı Uygulamaları**
@@ -94,7 +89,6 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 
 **Benzersiz Sipariş Kodu:** Her sipariş için benzersiz ID üretme.
 
-<br>
 <br>
 
 ## **Kullanılan Teknolojiler**
