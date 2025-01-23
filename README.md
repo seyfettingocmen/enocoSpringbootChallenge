@@ -4,7 +4,9 @@
 <br>
 Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticaret backend sistemi geliştirmeyi amaçlar. Temelde, iş mantığını modüler bir şekilde yönetmeye odaklanır.
 <br>
+
 ## **Temel Tasarım Prensipleri**
+
 <br>
 <br>
 **Domain-Driven Design (DDD):** İş problemini çözmek için yazılımı iş alanına göre tasarlama.
