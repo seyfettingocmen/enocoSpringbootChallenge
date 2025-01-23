@@ -1,4 +1,4 @@
-## E-Commerce Microservice Architecture Project
+## **E-Commerce Microservice Architecture Project**
 
 **Proje Genel Bakışı**
 
