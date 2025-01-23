@@ -17,15 +17,15 @@ Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticare
 
 **SOLID Prensipleri: Modüler ve bakımı kolay yazılım için beş temel prensip.**
 
-  **•** Single Responsibility Principle (SRP) - Tek Sorumluluk Prensibi
+  **1.** Single Responsibility Principle (SRP) - Tek Sorumluluk Prensibi
 
-  **•** Open/Closed Principle (OCP) - Açık/Kapalı Prensibi
+  **2.** Open/Closed Principle (OCP) - Açık/Kapalı Prensibi
 
-  **•** Liskov Substitution Principle (LSP) - Liskov Yerine Geçme Prensibi
+  **3.** Liskov Substitution Principle (LSP) - Liskov Yerine Geçme Prensibi
 
-  **•** Interface Segregation Principle (ISP) - Arayüz Ayrımı Prensibi
+  **4.** Interface Segregation Principle (ISP) - Arayüz Ayrımı Prensibi
 
-  **•** Dependency Inversion Principle (DIP) - Bağımlılıkların Tersine Çevrilmesi Prensibi
+  **5.** Dependency Inversion Principle (DIP) - Bağımlılıkların Tersine Çevrilmesi Prensibi
 
 **Transactional Integrity: Veritabanı işlemlerinin tutarlılığını sağlama.**
 
