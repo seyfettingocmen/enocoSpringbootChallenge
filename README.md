@@ -37,7 +37,7 @@ Java ve microservice mimari prensiplerine odaklanan kapsamlı bir Spring Boot e-
 - Order Processing
 - Benzersiz order code üretimi
 
-## Teknoloji Yığını
+## Kullanılan Teknolojiler
 - Java 17
 - Spring Boot
 - Spring Data JPA
