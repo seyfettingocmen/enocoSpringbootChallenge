@@ -2,7 +2,7 @@
 
 ## **Proje Genel Bakışı**
 <br>
-Bu proje, Java ve microservice mimarisi kullanarak mini bir Spring Boot e-ticaret backend sistemi geliştirmeyi amaçlar. Temelde, iş mantığını modüler bir şekilde yönetmeye odaklanır.
+Bu proje, Java ile katman mimarisi kullanarak mini bir Spring Boot e-ticaret backend sistemi geliştirmeyi amaçlar. Temelde, iş mantığını modüler bir şekilde yönetmeye odaklanır.
 <br>
 
 ## **Temel Tasarım Prensipleri**
