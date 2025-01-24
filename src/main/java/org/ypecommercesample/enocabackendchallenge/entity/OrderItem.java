@@ -1,33 +1,28 @@
 package org.ypecommercesample.enocabackendchallenge.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "order_items")
+@Entity // Bu sınıfın bir JPA entity'si olduğunu belirtir.
+@Table(name = "order_items") // Veritabanında "order_items" tablosuna karşılık gelir.
 @Getter
 @Setter
 public class OrderItem extends BaseEntity {
-    // Bağlı olduğu sipariş
-    @ManyToOne
-    @JoinColumn(name = "order_id")
+
+    @ManyToOne // OrderItem ve Order arasında çoktan bire ilişki kurar.
+    @JoinColumn(name = "order_id", nullable = false) // order_id sütunu ile ilişkilendirir.
     private Order order;
 
-    // Ürün
-    @ManyToOne
-    @JoinColumn(name = "product_id")
+    @ManyToOne // OrderItem ve Product arasında çoktan bire ilişki kurar.
+    @JoinColumn(name = "product_id", nullable = false) // product_id sütunu ile ilişkilendirir.
     private Product product;
 
-    // Miktar
+    @Column(nullable = false) // Miktar boş olamaz.
     private Integer quantity;
 
-    // Satın alma anındaki fiyat
+    @Column(nullable = false) // Satın alma anındaki fiyat boş olamaz.
     private BigDecimal priceAtPurchase;
-
 }

@@ -7,24 +7,21 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "customers")
+@Entity // Bu sınıfın bir JPA entity'si olduğunu belirtir.
+@Table(name = "customers") // Veritabanında "customers" tablosuna karşılık gelir.
 @Getter
 @Setter
 public class Customer extends BaseEntity {
 
-    // Müşteri adı
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100) // Müşteri adı boş olamaz ve maksimum 100 karakter olabilir.
     private String name;
 
-    // Email adresi - benzersiz olmalı
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 100) // Email benzersiz ve boş olamaz.
     private String email;
-    // Müşterinin sepeti - one-to-one ilişki
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL) // Customer ve Cart arasında bire bir ilişki.
     private Cart cart;
 
-    // Müşterinin siparişleri - one-to-many ilişki
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer") // Customer ve Order arasında bire çok ilişki.
     private List<Order> orders = new ArrayList<>();
 }

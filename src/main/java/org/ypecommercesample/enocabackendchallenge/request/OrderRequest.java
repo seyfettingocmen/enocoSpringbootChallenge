@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class CartRequest {
+public class OrderRequest {
     private Long customerId;
-    private List<CartItemRequest> items;
+    private List<OrderItemRequest> items;
 }

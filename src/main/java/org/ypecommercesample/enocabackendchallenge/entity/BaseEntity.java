@@ -9,30 +9,24 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@MappedSuperclass // Bu sınıfın diğer entity'ler tarafından miras alınacağını belirtir.
+@EntityListeners(AuditingEntityListener.class) // Auditing özelliklerini etkinleştirir.
 @Getter
 @Setter
-
-//BaseEntity classı, tüm entitylerin miras alacağı temek classtır
 public abstract class BaseEntity {
 
-    // Benzersiz ve otomatik id atamak için
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Id // Bu alanın birincil anahtar (primary key) olduğunu belirtir.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // ID'nin otomatik olarak artmasını sağlar.
     private Long id;
 
-
-    // Oluşturulma tarihi otomatik olarak set edilir
-    @CreatedDate
-    @Column(updatable = false)
+    @CreatedDate // Entity oluşturulduğunda otomatik olarak tarih atar.
+    @Column(updatable = false, nullable = false) // Bu alan güncellenemez ve boş olamaz.
     private LocalDateTime createdAt;
 
-
-    //Son güncelleme tarihi, her güncellmede otomatik olarak set edilir
-    @LastModifiedDate
+    @LastModifiedDate // Entity her güncellendiğinde otomatik olarak tarih atar.
+    @Column(nullable = false) // Bu alan boş olamaz.
     private LocalDateTime updatedAt;
 
-    // Aktif/Pasif durumu
-    private Boolean isActive = true;
+    @Column(nullable = false) // Bu alan boş olamaz.
+    private Boolean isActive = true; // Varsayılan değer true olarak atanır.
 }

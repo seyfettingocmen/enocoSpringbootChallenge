@@ -1,10 +1,13 @@
 package org.ypecommercesample.enocabackendchallenge.service;
 
-import jakarta.transaction.Transactional;
+import org.ypecommercesample.enocabackendchallenge.dto.CustomerDto;
+import org.ypecommercesample.enocabackendchallenge.entity.Customer;
+import org.ypecommercesample.enocabackendchallenge.exception.BusinessException;
+import org.ypecommercesample.enocabackendchallenge.mapper.CustomerMapper;
+import org.ypecommercesample.enocabackendchallenge.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.ypecommercesample.enocabackendchallenge.entity.Customer;
-import org.ypecommercesample.enocabackendchallenge.repository.CustomerRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
@@ -12,7 +15,9 @@ import org.ypecommercesample.enocabackendchallenge.repository.CustomerRepository
 public class CustomerService {
     private final CustomerRepository customerRepository;
 
-    public Customer getCustomerById(Long id) {
-        return customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Could not find customer with id " + id));
+    public CustomerDto getCustomerById(Long id) {
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -> new BusinessException("Could not find customer with id " + id));
+        return CustomerMapper.toCustomerDTO(customer);
     }
 }

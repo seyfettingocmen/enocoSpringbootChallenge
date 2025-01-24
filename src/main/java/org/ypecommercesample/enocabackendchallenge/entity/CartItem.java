@@ -1,32 +1,28 @@
 package org.ypecommercesample.enocabackendchallenge.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "cart_items")
+@Entity // Bu sınıfın bir JPA entity'si olduğunu belirtir.
+@Table(name = "cart_items") // Veritabanında "cart_items" tablosuna karşılık gelir.
 @Getter
 @Setter
-public class CartItem  extends BaseEntity{
-    // Bağlı olduğu sepet
-    @ManyToOne
-    @JoinColumn(name = "cart_id")
+public class CartItem extends BaseEntity {
+
+    @ManyToOne // CartItem ve Cart arasında çoktan bire ilişki kurar.
+    @JoinColumn(name = "cart_id", nullable = false) // cart_id sütunu ile ilişkilendirir.
     private Cart cart;
 
-    // Ürün
-    @ManyToOne
-    @JoinColumn(name = "product_id")
+    @ManyToOne // CartItem ve Product arasında çoktan bire ilişki kurar.
+    @JoinColumn(name = "product_id", nullable = false) // product_id sütunu ile ilişkilendirir.
     private Product product;
 
-    // Miktar
+    @Column(nullable = false) // Miktar boş olamaz.
     private Integer quantity;
 
-    // Ürünün sepete eklendiği andaki fiyatı
+    @Column(nullable = false) // Ürünün sepete eklendiği andaki fiyatı boş olamaz.
     private BigDecimal priceAtAdd;
 }

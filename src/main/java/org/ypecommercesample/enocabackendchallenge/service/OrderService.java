@@ -1,16 +1,19 @@
 package org.ypecommercesample.enocabackendchallenge.service;
 
-import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.ypecommercesample.enocabackendchallenge.entity.Cart;
+import org.ypecommercesample.enocabackendchallenge.dto.CartDto;
+import org.ypecommercesample.enocabackendchallenge.dto.OrderDto;
 import org.ypecommercesample.enocabackendchallenge.entity.Order;
 import org.ypecommercesample.enocabackendchallenge.entity.OrderItem;
 import org.ypecommercesample.enocabackendchallenge.exception.BusinessException;
+import org.ypecommercesample.enocabackendchallenge.mapper.CartMapper;
+import org.ypecommercesample.enocabackendchallenge.mapper.OrderMapper;
 import org.ypecommercesample.enocabackendchallenge.repository.OrderRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -19,19 +22,16 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final CartService cartService;
 
-    // Sipariş oluşturma
-    public Order placeOrder(Long customerId) {
-        Cart cart = cartService.getCartByCustomerId(customerId);
+    public OrderDto placeOrder(Long customerId) {
+        CartDto cart = cartService.getCartByCustomerId(customerId);
         if (cart.getItems().isEmpty()) {
             throw new BusinessException("Cart is empty");
         }
 
-        // Siparişi oluştur
         Order order = new Order();
-        order.setCustomer(cart.getCustomer());
+        order.setCustomer(CartMapper.toCartDTO(cart.getCustomerDto()));
         order.setOrderCode(generateOrderCode());
 
-        // Sepetteki ürünleri siparişe aktar
         cart.getItems().forEach(cartItem -> {
             OrderItem orderItem = new OrderItem();
             orderItem.setProduct(cartItem.getProduct());
@@ -42,23 +42,25 @@ public class OrderService {
         });
 
         order.setTotalPrice(cart.getTotalPrice());
-
-        // Sepeti temizle
         cartService.emptyCart(cart.getId());
 
-        return orderRepository.save(order);
+        order = orderRepository.save(order);
+        return OrderMapper.toOrderDTO(order);
     }
 
-    // Sipariş kodu üretme
     private String generateOrderCode() {
         return "ORD-" + System.currentTimeMillis();
     }
 
-    public List<Order> getCustomerOrders(Long customerId) {
-        return orderRepository.findByCustomerId(customerId);
+    public List<OrderDto> getCustomerOrders(Long customerId) {
+        return orderRepository.findByCustomerId(customerId).stream()
+                .map(OrderMapper::toOrderDTO)
+                .collect(Collectors.toList());
     }
 
-    public Optional<Order> getOrderByCode(String orderCode) {
-        return orderRepository.findByOrderCode(orderCode);
+    public OrderDto getOrderByCode(String orderCode) {
+        Order order = orderRepository.findByOrderCode(orderCode)
+                .orElseThrow(() -> new BusinessException("Order not found"));
+        return OrderMapper.toOrderDTO(order);
     }
 }

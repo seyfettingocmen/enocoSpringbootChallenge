@@ -9,30 +9,33 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "orders")
+@Entity // Bu sınıfın bir JPA entity'si olduğunu belirtir.
+@Table(name = "orders") // Veritabanında "orders" tablosuna karşılık gelir.
 @Getter
 @Setter
 public class Order extends BaseEntity {
 
-    // Sipariş kodu - benzersiz olmalı
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 50) // Sipariş kodu benzersiz ve boş olamaz.
     private String orderCode;
 
-    // Siparişi veren müşteri
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @ManyToOne // Order ve Customer arasında çoktan bire ilişki kurar.
+    @JoinColumn(name = "customer_id", nullable = false) // customer_id sütunu ile ilişkilendirir.
     private Customer customer;
 
-    // Siparişteki ürünler
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) // Order ve OrderItem arasında bire çok ilişki.
     private List<OrderItem> items = new ArrayList<>();
 
-    // Toplam fiyat
+    @Column(nullable = false) // Toplam fiyat boş olamaz.
     private BigDecimal totalPrice;
 
-    // Sipariş durumu
-    @Enumerated(EnumType.STRING)
-    private OrderStatus status = OrderStatus.PENDING;
+    @Enumerated(EnumType.STRING) // Enum değerini string olarak kaydeder.
+    @Column(nullable = false) // Sipariş durumu boş olamaz.
+    private OrderStatus status = OrderStatus.PENDING; // Varsayılan durum PENDING olarak atanır.
 
+    // Siparişin toplam fiyatını hesaplayan metod.
+    public void calculateTotalPrice() {
+        this.totalPrice = items.stream()
+                .map(item -> item.getPriceAtPurchase().multiply(BigDecimal.valueOf(item.getQuantity())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
 }

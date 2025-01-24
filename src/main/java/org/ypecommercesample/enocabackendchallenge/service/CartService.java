@@ -1,13 +1,15 @@
 package org.ypecommercesample.enocabackendchallenge.service;
 
-import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.ypecommercesample.enocabackendchallenge.dto.CartDto;
+import org.ypecommercesample.enocabackendchallenge.dto.CustomerDto;
 import org.ypecommercesample.enocabackendchallenge.entity.Cart;
 import org.ypecommercesample.enocabackendchallenge.entity.CartItem;
-import org.ypecommercesample.enocabackendchallenge.entity.Customer;
 import org.ypecommercesample.enocabackendchallenge.exception.BusinessException;
+import org.ypecommercesample.enocabackendchallenge.mapper.CartMapper;
 import org.ypecommercesample.enocabackendchallenge.repository.CartRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
@@ -19,17 +21,13 @@ public class CartService {
     private final ProductService productService;
     private final CustomerService customerService;
 
-    // Sepete ürün ekleme
-    public Cart addProductToCart(Integer cartId, Long productId, Integer quantity) {
-        Cart cart = cartRepository.findById(cartId)
-                .orElseThrow(() -> new BusinessException("Cart not found"));
+    public CartDto addProductToCart(Long cartId, Long productId, Integer quantity) {
+        Cart cart = cartRepository.findById(cartId);
 
-        // Stok kontrolü
         if (!productService.hasEnoughStock(productId, quantity)) {
             throw new BusinessException("Not enough stock");
         }
 
-        // Ürünü sepete ekle
         CartItem cartItem = new CartItem();
         cartItem.setProduct(productService.getProduct(productId));
         cartItem.setQuantity(quantity);
@@ -39,21 +37,20 @@ public class CartService {
         cart.getItems().add(cartItem);
         updateCartTotal(cart);
 
-        return cartRepository.save(cart);
+        cart = cartRepository.save(cart);
+        return CartMapper.toCartDTO(cart);
     }
 
-    // Sepetten ürün çıkarma
-    public Cart removeProductFromCart(Integer cartId, Long productId) {
-        Cart cart = cartRepository.findById(cartId)
-                .orElseThrow(() -> new BusinessException("Cart not found"));
+    public CartDto removeProductFromCart(Long cartId, Long productId) {
+        Cart cart = cartRepository.findById(cartId);
 
         cart.getItems().removeIf(item -> item.getProduct().getId().equals(productId));
         updateCartTotal(cart);
 
-        return cartRepository.save(cart);
+        cart = cartRepository.save(cart);
+        return CartMapper.toCartDTO(cart);
     }
 
-    // Sepet toplamını güncelleme
     private void updateCartTotal(Cart cart) {
         BigDecimal total = cart.getItems().stream()
                 .map(item -> item.getPriceAtAdd().multiply(BigDecimal.valueOf(item.getQuantity())))
@@ -61,12 +58,10 @@ public class CartService {
         cart.setTotalPrice(total);
     }
 
-    public void emptyCart(Long id) {
-        cartRepository.deleteAll();
-    }
-
-    public Cart getCartByCustomerId(Long customerId) {
-        Customer customer = customerService.getCustomerById(customerId);
-        return cartRepository.findById(customer.getId());
+    public CartDto getCartByCustomerId(Long customerId) {
+        CustomerDto customer = customerService.getCustomerById(customerId);
+        Cart cart = cartRepository.findByCustomerId(customer.getId())
+                .orElseThrow(() -> new BusinessException("Cart not found"));
+        return CartMapper.toCartDTO(cart);
     }
 }
