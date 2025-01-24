@@ -1,4 +1,4 @@
-# **E-Commerce Microservice Architecture Project**
+# **Java Springboot ile Yazılmış Katman Mimarisi Yapıya Sahip E-Commerce Projesi**
 
 ## **Proje Genel Bakışı**
 <br>
